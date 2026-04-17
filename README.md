@@ -1,4 +1,4 @@
-# Automated AWS DevOps Agent Network Incident Response
+# Automated network incident response with AWS DevOps Agent
 
 Your on-call engineer gets paged at 2 AM. A payment service in Workload Account cannot reach a shared database in Shared Services Account. The [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) alarm fired eight minutes ago. The engineer starts by checking route tables across two accounts, [Amazon Virtual Private Cloud (Amazon VPC)](https://aws.amazon.com/vpc/) attachment states, [security group](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html) rules on both sides, [network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html), and DNS resolution logs. An hour later, the root cause turns out to be a [AWS Transit Gateway](https://aws.amazon.com/transit-gateway/) route table association that was swapped to the wrong route table during a network migration earlier that evening, quietly dropping all traffic between the two VPCs while every other spoke kept working fine.
 
