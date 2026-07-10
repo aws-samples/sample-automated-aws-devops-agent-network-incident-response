@@ -92,7 +92,7 @@ Amazon SNS sits between Amazon CloudWatch and AWS Lambda for three reasons: it r
 
 ## Scenario 1: Security group rule deleted, database goes down
 
-The database security group (`simulated-workload-DB-SG`) allows inbound MySQL traffic (port 3306) from the application security group (`devops-agent-sample-app-App-SG`). The following Figure 6 shows this the inbound rule being deleted.
+The database security group (`simulated-workload-DB-SG`) allows inbound MySQL traffic (port 3306) from the application security group (`simulated-workload-App-SG`). The following Figure 6 shows this the inbound rule being deleted.
 
 ![Security group inbound rule being deleted](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2026/04/17/NetCDNBlog-1723-image-6.gif)
 *Figure 6: Security group inbound rule being deleted*
