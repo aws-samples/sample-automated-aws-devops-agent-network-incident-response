@@ -71,7 +71,7 @@ Parameters:
   ResourcePrefix:
     Description: Prefix for all resource names
     Type: String
-    Default: devops-agent-sample-app
+    Default: simulated-workload
 
 Resources:
 
