@@ -30,6 +30,16 @@ Download the CloudFormation template from the [GitHub repository](https://github
 2. Select **Upload a template file**, upload the downloaded file, and choose **Next**.
 3. Enter a stack name, acknowledge any IAM checkboxes, and choose **Submit**.
 
+If the default `MySQLEngineVersion` is unavailable in your deployment Region, select a supported MySQL 8.0 version in the stack parameters. To list versions compatible with the sample instance class and storage type, run (replace the Region as needed):
+
+```bash
+aws rds describe-orderable-db-instance-options \
+  --engine mysql --db-instance-class db.t3.micro \
+  --region us-east-1 \
+  --query "OrderableDBInstanceOptions[?StorageType=='gp3' && starts_with(EngineVersion, '8.0.')].EngineVersion" \
+  --output text
+```
+
 Once your CloudFormation deployment is complete, navigate to the **Outputs** tab in the CloudFormation console where you'll find a link to access the simulated workload application status page. The status page will show the application running correctly, with green **"Connected"** boxes confirming all checks are passing.
 
 ![Simulated workload application status page](https://d2908q01vomqb2.cloudfront.net/5b384ce32d8cdef02bc3a139d4cac0a22bb029e8/2026/04/16/NetCDNBlog-1723-image-2.png)
