@@ -32,6 +32,7 @@ Metadata:
           default: "Application Configuration"
         Parameters:
           - LatestAmiId
+          - MySQLEngineVersion
       - Label:
           default: "Resource Configuration"
         Parameters:
@@ -67,6 +68,11 @@ Parameters:
     Description: Latest Amazon Linux 2023 AMI ID
     Type: AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>
     Default: /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64
+
+  MySQLEngineVersion:
+    Type: String
+    Default: '8.0.46'
+    Description: RDS MySQL engine version available in the target AWS Region.
 
   ResourcePrefix:
     Description: Prefix for all resource names
@@ -874,7 +880,7 @@ Resources:
       DBInstanceIdentifier: !Sub '${ResourcePrefix}-db'
       DBName: sampleapp
       Engine: mysql
-      EngineVersion: '8.0.45'
+      EngineVersion: !Ref MySQLEngineVersion
       DBInstanceClass: db.t3.micro
       AllocatedStorage: 20
       StorageType: gp3
